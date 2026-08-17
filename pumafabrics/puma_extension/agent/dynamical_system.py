@@ -100,7 +100,9 @@ class DynamicalSystem():
 
     def exp_map_sphere(self, p, v):
         v_norm = v.norm(dim=1, keepdim=True)
-        mapped_point = torch.cos(v_norm) * p + torch.sin(v_norm) * (v / v_norm)
+        epsilon = 1e-8
+        safe_v_norm = v_norm.clamp(min=epsilon)
+        mapped_point = torch.cos(v_norm) * p + torch.sin(v_norm) * (v / safe_v_norm)
         return mapped_point
 
     def integrate_non_euclidean_1st_order(self, x_t, vel_t_d):

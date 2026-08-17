@@ -1,4 +1,4 @@
-from pumafabrics.puma_extension.datasets.dataset_keys import LASA, LASA_S2, LAIR, ABB_R3S3, hammer, kuka, dingo_kinova
+from pumafabrics.puma_extension.datasets.dataset_keys import LASA, LASA_S2, LAIR, ABB_R3S3, hammer, kuka, dingo_kinova, lasa_s2_puma
 from spatialmath import SO3, UnitQuaternion
 import os
 import pickle
@@ -45,6 +45,8 @@ def get_dataset_primitives_names(dataset_name):
         dataset_primitives_names = LASA
     elif dataset_name == 'LASA_S2':
         dataset_primitives_names = LASA_S2
+    elif dataset_name == 'lasa_s2_puma':
+        dataset_primitives_names = lasa_s2_puma
     elif dataset_name == 'LAIR':
         dataset_primitives_names = LAIR
     elif dataset_name == 'ABB_R3S3':
@@ -86,6 +88,8 @@ def get_data_loader(dataset_name, dim_manifold):
     elif dataset_name == 'joint_space':
         data_loader = load_from_dict
     elif dataset_name == 'LASA_S2':
+        data_loader = load_LASA_S2
+    elif dataset_name == 'lasa_s2_puma':
         data_loader = load_LASA_S2
     elif dataset_name == 'ABB_R3S3':
         data_loader = load_R3S3

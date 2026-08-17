@@ -35,6 +35,8 @@ pytorch-kinematics = "^0.6.1"
 drake = "1.26"
 grasp-planning = {git = "https://github.com/TomasMerva/gomp.git", rev = "main"}
 roboticstoolbox-python = "^1.1.1"
+kaleido = "0.2.1"
+pathlib = "^1.0.1"
 
 [tool.poetry.group.dev]
 optional = true

@@ -5,10 +5,10 @@ import numpy as np
 @dataclass
 class Params:
     """ General parameters """
-    dataset_name: str = 'LASA_S2'  # selects dataset, options: LASA, LAIR, optitrack, interpolation, joint_space
+    dataset_name: str = 'lasa_s2_puma'  # selects dataset, options: LASA, LAIR, optitrack, interpolation, joint_space
     results_path: str = 'results/1st_order_S2/'
     multi_motion: bool = False  # true when learning multiple motions together
-    selected_primitives_ids: str = '20'  # id number from dataset_keys.py, e.g., '2' or '4,0,6'
+    selected_primitives_ids: str = '1'  # id number from dataset_keys.py, e.g., '2' or '4,0,6'
     manifold_dimensions: int = 2  # dimensionality of the data manifold
     saturate_out_of_boundaries_transitions: bool = True  # True to enforce positively invariant set
     dynamical_system_order: int = 1  # options: 1, 2
@@ -34,7 +34,7 @@ class Params:
     """ Training """
     train: bool = True  # true when training
     load_model: bool = False  # true to load previously trained model
-    max_iterations: int = 41000  # maximum number of training iterations
+    max_iterations: int = 10000 #4000 #41000  # maximum number of training iterations
 
     """ Preprocessing """
     spline_sample_type: str = 'from data'  # resample from spline type, options: from data, evenly spaced
